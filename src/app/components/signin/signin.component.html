@@ -1,0 +1,37 @@
+<form #form="ngForm" (ngSubmit)="registrar()" >
+  <div>
+    <label>Nombre: </label>
+    <input type="text" name="name" [(ngModel)]="userDTO.name" required/>
+  </div>
+  <div>
+    <label>Nickname: </label>
+    <input type="text" name="nickname" [(ngModel)]="userDTO.nickname" required/>
+  </div>
+  <div>
+    <label>Teléfono: </label>
+    <input type="text" name="cellphoneNumber" [(ngModel)]="userDTO.cellphoneNumber" required/>
+  </div>
+  <div>
+    <label>Email: </label>
+    <input type="text" name="email" [(ngModel)]="userDTO.email" required/>
+  </div>
+  <div>
+    <label>Fecha de Nacimiento: </label>
+    <input type="date" name="birthday" [(ngModel)]="userDTO.birthday" required/>
+  </div>
+  <div>
+    <label>Contraseña: </label>
+    <input type="password" name="password" [(ngModel)]="userDTO.password" required/>
+  </div>
+  <div>
+    <label>Confirmar contraseña: </label>
+    <input type="password" name="confirmPassword" [(ngModel)]="userDTO.confirmPassword" required/>
+  </div>
+  <div>
+    <label>Pais: </label>
+    <input type="text" name="country" [(ngModel)]="userDTO.country" required/>
+  </div>
+  <button type="submit" [disabled]="form.invalid || !confirmPassword()">Registrarse</button>
+  <p *ngIf="!confirmPassword()">Las contraseñas no coinciden</p>
+</form>
+
